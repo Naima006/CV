@@ -5,6 +5,10 @@
     --white:#f4f7ff;
     --gray:#d8dce4;
     --lightgray:#8e9095;
+    --facebook:#1613f5;
+    --twitter: #1da1f2;
+    --linkedin:#0A66C2;
+    --share: #9452d1;
 
 }
 *{
@@ -20,6 +24,7 @@ body{
     clear:both;
 }
 .resume-box{
+    position: relative;
     width: 800px;
     height: 1000px;
     margin: 100px auto;
@@ -265,8 +270,106 @@ body{
     gap: 30px;
     padding-top: 10px;
 }
-
 .hobby-icon {
     width: 30px;
     height: 30px;
+}
+
+.share-button{
+    position: absolute;
+    right: -20px;
+    top: 94%;
+    transform: translate(-50%, -50%);
+}
+label{
+    position: relative;
+    background: var(--share);
+    height: 45px;
+    width: 90px;
+    border-radius: 35px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    display: block;
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+label:hover{
+    letter-spacing: 1px;
+}
+label::before{
+    content: 'Cancel';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background:var(--share);
+    border-radius: 35px;
+    opacity: 0;
+}
+#check{
+    display:none;
+}
+#check:checked ~ label::before{
+    opacity:1;
+}
+
+.media-icons{
+    position: absolute;
+    left: 50%;
+    top: -150%;
+    transform: translateX(-50%);
+    background: var(--white);
+    height: 110%;
+    width: 120%;
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 35px;
+    padding: 4px;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+#check:checked ~ .media-icons{
+    opacity: 1;
+    pointer-events: auto;
+    top: -150%;
+}
+.media-icons::before{
+    content:'';
+    background: var(--white);
+    box-shadow: 1px 1px 0px rgba(150, 150, 150, 0.5);
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    left: 50%;
+    bottom: -9px;
+    transform: translateX(-50%) rotate(45deg);
+}
+.media-icons a{
+    font-size: 22px;
+    color: var(--share);
+    transition: all 0.3s ease;
+}
+.media-icons a:hover{
+    transform: translateY(-2px);
+}
+
+.media-icons a:nth-child(1):hover{
+    color: var(--facebook);
+}
+.media-icons a:nth-child(2):hover{
+    color: var(--twitter);
+}
+.media-icons a:nth-child(3):hover{
+    color: var(--linkedin);
 }
